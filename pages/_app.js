@@ -1,5 +1,7 @@
 // import App from 'next/app'
+
 import Link from "next/link";
+import "../styles/global.css";
 
 function MyApp({ Component, pageProps }) {
   return (
