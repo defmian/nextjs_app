@@ -32,7 +32,6 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps(context) {
-  console.log(`hi `, context);
   const { params } = context;
   return {
     props: blogPosts.find((item) => item.slug === params.slug), // will be passed to the page component as props
