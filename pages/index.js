@@ -14,20 +14,26 @@ export default function Home() {
 
       <main>
         <h1>My blog!</h1>
-        <div>
+        <div className="my-4">
           {blogPosts.map((post) => (
-            <div key={post.slug}>
-              <div>
-                <Link href={`/blog/${post.slug}`}>
-                  <a>{post.title}</a>
-                </Link>
-              </div>
-              <div>{post.date.toString()}</div>
-              <div>{post.content}</div>
-            </div>
+            <BlogItem key={post.slug} {...post} />
           ))}
         </div>
       </main>
+    </div>
+  );
+}
+
+function BlogItem({ slug, title, content, date }) {
+  return (
+    <div className="border-gray-200 rounded-lg border-2 shadow-sm">
+      <div>
+        <Link href={`/blog/${slug}`}>
+          <a>{title}</a>
+        </Link>
+      </div>
+      <div className="text-sm antialiased ">{date.toDateString()}</div>
+      <div>{content}</div>
     </div>
   );
 }
