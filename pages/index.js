@@ -13,8 +13,11 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>My blog!</h1>
-        <div className="my-4">
+        <h1>
+          Welcome to my new blog about new technologies and programming
+          languages. I hope you will enjoy and you find something for yourself.
+        </h1>
+        <div>
           {blogPosts.map((post) => (
             <BlogItem key={post.slug} {...post} />
           ))}
@@ -26,14 +29,16 @@ export default function Home() {
 
 function BlogItem({ slug, title, content, date }) {
   return (
-    <div className="border-gray-200 rounded-lg border-2 shadow-sm">
-      <div>
+    <div className="border-gray-200 rounded-lg border-2 shadow-sm p-4 mb-8">
+      <div className="font-bold text-2xl ">
         <Link href={`/blog/${slug}`}>
-          <a>{title}</a>
+          <a className="text-gray-800">{title}</a>
         </Link>
       </div>
-      <div className="text-sm antialiased ">{date.toDateString()}</div>
-      <div>{content}</div>
+      <div className="text-xs inline font-light antialiased ">
+        {date.toDateString()}
+      </div>
+      <div className="">{content}</div>
     </div>
   );
 }
