@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { blogPosts } from "../lib/data";
-
+import { request } from "../lib/datocms";
 import App from "next/head";
 import Link from "next/link";
+import { getAllPosts } from "../lib/datocms";
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <div className="container">
       <Head>
@@ -12,17 +13,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>
+      {/* <main>
+        <h1 className="">
           Welcome to my new blog about new technologies and programming
-          languages. I hope you will enjoy and you find something for yourself.
+          languages. I hope you will enjoy reading and you find something for yourself.
         </h1>
         <div>
           {blogPosts.map((post) => (
             <BlogItem key={post.slug} {...post} />
           ))}
         </div>
-      </main>
+      </main> */}
     </div>
   );
 }
@@ -41,4 +42,12 @@ function BlogItem({ slug, title, content, date }) {
       <div className="">{content}</div>
     </div>
   );
+}
+export async function getServerSideProps({ preview = false }) {
+  const allPosts = (await getAllPosts(preview)) || [];
+
+  console.log({ allPosts });
+  return {
+    props: { allPosts },
+  };
 }
