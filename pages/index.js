@@ -5,6 +5,7 @@ import App from "next/head";
 import Link from "next/link";
 import { getAllPosts } from "../lib/datocms";
 import { Image } from "next/image";
+// import Header from "../components/Header";
 
 export default function Home({ allPosts }) {
   return (
@@ -20,7 +21,7 @@ export default function Home({ allPosts }) {
           languages. I hope you will enjoy reading and you find something for
           yourself.
         </h1>
-
+        <Header />
         <div>
           {allPosts.map((post) => (
             <BlogItem key={post.slug} {...post} />
