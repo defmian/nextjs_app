@@ -5,8 +5,8 @@ import App from "next/head";
 import Link from "next/link";
 import { getAllPosts } from "../lib/datocms";
 import { Image } from "next/image";
-// import Header from "../components/Header";
-
+import Header from "../components/Header";
+import Logo from "../components/Logo";
 export default function Home({ allPosts }) {
   return (
     <div className="container">
@@ -15,6 +15,7 @@ export default function Home({ allPosts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Logo />
       <main>
         <h1 className="my-5">
           Welcome to my new blog about new technologies and programming
