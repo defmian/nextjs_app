@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ["Montserrat", "Graphik", "sans-serif"],
+      header: "Space Mono",
+      spacemono: ["Space Mono, monospace"],
+      robotomono: ["Roboto Mono, monospace"],
     },
   },
   variants: {

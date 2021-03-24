@@ -7,29 +7,30 @@ import { getAllPosts } from "../lib/datocms";
 import { Image } from "next/image";
 import Header from "../components/Header";
 import Logo from "../components/Logo";
+import Nav from "../components/Nav";
 export default function Home({ allPosts }) {
   return (
-    <div className="container">
-      <Head>
-        <title>My blog</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Logo />
-      <main>
-        <h1 className="my-5">
-          Welcome to my new blog about new technologies and programming
-          languages. I hope you will enjoy reading and you find something for
-          yourself.
-        </h1>
-        <Header />
-        <div>
-          {allPosts.map((post) => (
-            <BlogItem key={post.slug} {...post} />
-          ))}
-        </div>
-      </main>
-    </div>
+    <>
+      <div className="">
+        <Head>
+          <title>My blog</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <main>
+          <h1 className="my-5">
+            Welcome to my new blog about new technologies and programming
+            languages. I hope you will enjoy reading and you find something for
+            yourself.
+          </h1>
+          <Header />
+          <div>
+            {allPosts.map((post) => (
+              <BlogItem key={post.slug} {...post} />
+            ))}
+          </div>
+        </main>
+      </div>
+    </>
   );
 }
 

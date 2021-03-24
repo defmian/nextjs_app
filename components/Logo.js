@@ -1,10 +1,12 @@
-import LogoCannonTech from "../assets/LogoCannonTech.svg";
+import LogoCannonTech from "../assets/Logo.svg";
+import LogoCannonTechBlack from "../assets/LogoBlack.svg";
 
-export default function Logo() {
+export default function Logo({ colorLogo }) {
   return (
-    <div>
-      <p>Test</p>
-      <LogoCannonTech />
+    <div className="inline-block">
+      <a href="#">
+        {colorLogo == "white" ? <LogoCannonTech /> : <LogoCannonTechBlack />}
+      </a>
     </div>
   );
 }

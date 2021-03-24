@@ -1,30 +1,16 @@
 // import App from 'next/app'
 
 import Link from "next/link";
+import Nav from "../components/Nav";
 import "../styles/global.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="mx-auto w-6/12 my-8 sm:w-9/12 md:w-6/12">
-      <header>
-        <h1 className="text-6xl font-bold text-center">My Blog</h1>
-        <nav className="my-4">
-          <ul className="flex flex-row justify-center space-x-10 sm:space-x-4 md:space-x-12">
-            <li>
-              <Link href="/">
-                <a>Home</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about">
-                <a>About</a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-      <Component {...pageProps} />
+    <div>
+      <Nav colorLogo="white" />
+      <div className="mx-auto w-full my-4 sm:w-9/12 md:w-6/12">
+        <Component {...pageProps} />
+      </div>
     </div>
   );
 }
