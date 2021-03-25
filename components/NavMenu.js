@@ -3,26 +3,26 @@ import Link from "next/link";
 
 export default function NavMenu() {
   return (
-    <div className="">
+    <div className="py- border-b-4">
       <ul className="flex flex-row space-between font-robotomono text-white text-base">
-        <li className="inline-block mr-24">
+        <li className="inline-block mx-12">
           <Link className="" href="/">
             <a>HOME</a>
           </Link>
         </li>
-        <li className="inline-block mr-24">
+        <li className="inline-block mx-12 hover:text-gray-100 hover:border-b-2">
           <Link href="/category">
             <a>CATEGORY</a>
           </Link>
         </li>
-        <li className="inline-block mr-24">
+        <li className="inline-block mx-12">
           <Link href="/about">
             <a>ABOUT</a>
           </Link>
         </li>
-        <li className="inline-block">
+        <li className="inline-block mx-12">
           <Link href="/contact">
-            <a className="block lg:inline-block mr-24">CONTACT</a>
+            <a>CONTACT</a>
           </Link>
         </li>
       </ul>

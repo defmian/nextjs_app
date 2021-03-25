@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { blogPosts } from "../../lib/data";
+import { getBlogPost } from "../../lib/datocms";
 
 // pages/blog/[slug].js
 export default function BlogPost({ title, date, content }) {
@@ -23,7 +24,7 @@ export default function BlogPost({ title, date, content }) {
 export async function getStaticPaths() {
   // Get the paths we want to pre-render based on post
   return {
-    paths: blogPosts.map((item) => ({
+    paths: getBlogPost.map((item) => ({
       params: {
         slug: item.slug,
       },
@@ -34,6 +35,6 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { params } = context;
   return {
-    props: blogPosts.find((item) => item.slug === params.slug), // will be passed to the page component as props
+    props: getBlogPost.find((item) => item.slug === params.slug), // will be passed to the page component as props
   };
 }
