@@ -1,5 +1,9 @@
 import Head from "next/head";
-import { getBlogPost, getAllPostsWithSlug } from "../../lib/datocms";
+import {
+  getBlogPost,
+  getPostAndMorePost,
+  getAllPostsWithSlug,
+} from "../../lib/datocms";
 
 // pages/blog/[slug].js
 export default function BlogPost({ post }) {
@@ -35,13 +39,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview = false }) {
+  const dataPost = await getPostAndMorePost(params.slug);
   const data = await getBlogPost();
-
   return {
     props: {
       preview,
       post: {
-        ...data.find((item) => item.slug === params.slug),
+        ...dataPost,
+
+        // ...data.find((item) => item.slug === params.slug),
       },
       morePosts: data?.morePosts ?? [],
     },
