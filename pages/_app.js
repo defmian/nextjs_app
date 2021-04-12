@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <div className="mx-auto ">
       <Nav colorLogo="white" />
-      <div className="mx-auto w-full my-4 sm:w-9/12 md:w-6/12">
+      <div className=" my-4 sm:w-9/12 md:w-6/12">
         <Component {...pageProps} />
       </div>
     </div>

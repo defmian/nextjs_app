@@ -1,10 +1,11 @@
 import Logo from "./Logo";
 import NavMenu from "./NavMenu";
+import Container from "./Container";
 
 export default function Nav({ colorLogo }) {
   return (
     <nav className="relative select-none bg-black items-center ">
-      <div className="flex items-center justify-between max-w-screen-2xl">
+      <Container className="flex flex-row">
         <div className="flex items-center">
           <Logo colorLogo={colorLogo} />
         </div>
@@ -21,7 +22,7 @@ export default function Nav({ colorLogo }) {
         </button>
       </div> */}
         <NavMenu />
-      </div>
+      </Container>
     </nav>
   );
 }
