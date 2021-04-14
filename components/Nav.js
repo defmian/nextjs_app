@@ -1,68 +1,42 @@
+import React, { useState } from "react";
+// import Link from 'next/ll'
 import Logo from "./Logo";
 import NavMenu from "./NavMenu";
 import Container from "./Container";
 
 export default function Nav({ colorLogo }) {
+  const [isOpen, toggleSidebar] = useState(false);
+
   return (
-    <nav className="relative select-none bg-black items-center ">
-      <Container className="flex flex-row">
-        <div className="flex items-center">
-          <Logo colorLogo={colorLogo} />
+    <nav className="relative select-none items-center justify-between px-2 py-3 bg-accent-1">
+      <Container>
+        <div className="relative flex flex-column justify-between ">
+          <div className="w-full flex flex-row justify-between lg:w-auto lg:static lg:block lg:justify-start ">
+            <div className="mt-2">
+              <Logo colorLogo={colorLogo} />
+            </div>
+            <button
+              type="button"
+              className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent bg-transparent block lg:hidden outline-none focus:outline-none"
+              onClick={() => toggleSidebar(!isOpen)}
+            >
+              <svg fill="white" viewBox="0 0 100 80" width="30" height="30">
+                <rect width="80" height="10"></rect>
+                <rect y="30" width="80" height="10"></rect>
+                <rect y="60" width="80" height="10"></rect>
+              </svg>
+            </button>
+          </div>
+          <div
+            className={
+              "lg:flex flex-grow items-center" + (isOpen ? " flex" : " hidden")
+            }
+            id="navbar-danger"
+          >
+            <NavMenu />
+          </div>
         </div>
-        {/* <div className="block lg:hidden">
-        <button className="flex items-center px-3 py-2 border rounded text-teal-light hover:text-white hover:border-white">
-        <svg
-        class="h-3 w-3"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-        >
-        <title>Menu</title>
-        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
-        </button>
-      </div> */}
-        <NavMenu />
       </Container>
     </nav>
   );
 }
-
-<div class="flex items-center justify-between flex-wrap bg-teal p-6">
-  <div class="flex items-center flex-no-shrink text-white mr-6">
-    <span class="font-semibold text-xl tracking-tight">Tailwind CSS</span>
-  </div>
-  <div class="block lg:hidden">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
-      <svg
-        class="h-3 w-3"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>Menu</title>
-        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-      </svg>
-    </button>
-  </div>
-  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-    <div class="text-sm lg:flex-grow">
-      <a
-        href="#responsive-header"
-        class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4"
-      >
-        Docs
-      </a>
-      <a
-        href="#responsive-header"
-        class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4"
-      >
-        Examples
-      </a>
-      <a
-        href="#responsive-header"
-        class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white"
-      >
-        Blog
-      </a>
-    </div>
-  </div>
-</div>;

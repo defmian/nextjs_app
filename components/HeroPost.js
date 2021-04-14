@@ -1,6 +1,6 @@
 import Header from "./Header";
 
-export default function HomePage() {
+export default function HomePage({ title, coverImage, excerpt }) {
   return (
     <section>
       <div className="">

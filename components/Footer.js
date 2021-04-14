@@ -2,20 +2,20 @@ import Container from "./Container";
 import Logo from "./Logo";
 import ArrowRight from "../assets/arrow_forward_black_24dp.svg";
 
-export default function Footer() {
+export default function Footer({ darkMode }) {
   return (
-    <footer className="bg-accent-2">
+    <footer className="px-8 bg-accent-2">
       <Container>
-        <div className="flex flex-col lg:flex-row justify-center lg:justify-between py-12">
-          <div className="flex flex-col mt-2">
+        <div className="py-12 flex flex-col items-center lg:items-start lg:flex-row md:justify-between">
+          <div className="pb-12 sm:pb-4 lg:w-1/3">
             <Logo />
-            <p className="mt-4 font-lighter text-accent-3 text-sm ">
-              My blog about technologies
+            <p className="mt-4 select-none font-lighter text-accent-3 text-sm">
+              My blog about new technologies
             </p>
           </div>
-          <div className="flex flex-row justify-center ">
-            <div>
-              <div className="flex flex-col text-lg font-medium">Blog</div>
+          <div className="w-full xl:w-3/4 flex flex-col flex-grow md:flex-row sm:justify-center">
+            <div className="w-1/2 pb-4">
+              <div className="pb-1 text-lg font-semibold select-none">Blog</div>
               <a
                 href="#"
                 className="my-3 block text-accent-3 font-lighter text-sm"
@@ -24,54 +24,58 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="my-3 block  text-accent-3 font-lighter text-sm"
-              >
-                Events
-              </a>
-              <a
-                href="#"
-                className="my-3 block  text-accent-3 font-lighter text-sm"
+                className="my-3 block text-accent-3 font-lighter text-sm"
               >
                 Category
               </a>
-            </div>
-            <div>
-              <div className="flex flex-col text-lg">Contact me</div>
               <a
                 href="#"
-                className="my-3 block  text-accent-3 font-lighter text-sm"
+                className="my-3 block text-accent-3 font-lighter text-sm"
+              >
+                About me
+              </a>
+            </div>
+            <div className="w-1/2 pb-4">
+              <div className="pb-1 text-lg font-semibold select-none">
+                Contact me
+              </div>
+              <a
+                href="#"
+                className="my-3 block text-accent-3 font-lighter text-sm"
               >
                 info@cannontech.com
               </a>
-              <p className="my-3 block  text-accent-3 font-lighter text-sm">
+              <p className="my-3 block text-accent-3 font-lighter text-sm">
                 1-800-900-301
               </p>
-              <p className="my-3 block  text-accent-3 font-lighter text-sm w-7/12">
+              <p className="my-3 w-32 block text-accent-3 font-lighter text-sm">
                 1010 Sunset Blv. Palo Alto, California
               </p>
             </div>
-            <div>
-              <div className="flex flex-col text-lg ">Stay up to date</div>
-              <p className="my-3 block  text-accent-3 font-lighter text-sm">
+            <div className="w-1/2">
+              <div className="pb-1 text-lg font-semibold select-none">
+                Stay up to date
+              </div>
+              <p className="my-3 block text-accent-3 font-lighter text-sm">
                 Subscribe to newsletter
               </p>
-              <div className="relative">
-                <div>
-                  <form className="">
+              <div>
+                <div className="relative">
+                  <form>
                     <input
-                      className="outline-none rounded-md py-2 pl-4 pr-8 border mr-0  text-accent-3 font-lighter text-sm bg-gray-200 focus:border-gray-300 focus:boxShadow active:bg-gray-100 "
+                      className="w-full outline-none rounded-md py-2 pl-4 pr-8 border mr-0 text-accent-3 font-lighter text-xs bg-gray-200 focus:border-gray-300 focus:boxShadow active:bg-gray-100 "
                       placeholder="Email..."
                     />
                   </form>
-                </div>
-                <div className="absolute right-4 top-2 h-4 w-4 ">
-                  <ArrowRight fill="gray" />
+                  <div className="absolute right-4 top-2 h-4 w-4 ">
+                    <ArrowRight fill="#666666" />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className=" text-accent-3 font-lighter text-xs text-center py-8">
+        <div className="py-8 text-accent-3 font-lighter text-xs text-center">
           © Copyright CANNON TECH Damian Dzialo
         </div>
       </Container>
