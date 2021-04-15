@@ -185,4 +185,9 @@
     font-family: "Mulish";
     background-color: #fff;
   }
+
+  .active {
+    border-bottom-width: 2px;
+    border-bottom-color: white;
+  }
 }

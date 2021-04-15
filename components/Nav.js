@@ -10,9 +10,9 @@ export default function Nav({ colorLogo }) {
   return (
     <nav className="relative select-none items-center justify-between px-2 py-3 bg-accent-1">
       <Container>
-        <div className="relative flex flex-column justify-between ">
+        <div className="relative flex flex-col lg:flex-row justify-between">
           <div className="w-full flex flex-row justify-between lg:w-auto lg:static lg:block lg:justify-start ">
-            <div className="mt-2">
+            <div className="mt-4">
               <Logo colorLogo={colorLogo} />
             </div>
             <button
@@ -28,9 +28,7 @@ export default function Nav({ colorLogo }) {
             </button>
           </div>
           <div
-            className={
-              "lg:flex flex-grow items-center" + (isOpen ? " flex" : " hidden")
-            }
+            className={"lg:flex flex-grow " + (isOpen ? " flex" : " hidden")}
             id="navbar-danger"
           >
             <NavMenu />

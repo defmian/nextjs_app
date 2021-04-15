@@ -3,19 +3,43 @@ import { renderMetaTags, useQuerySubscription } from "react-datocms";
 import { request } from "../lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
 import Layout from "../components/Layout";
+import HeroPage from "../components/HeroPost";
 
 export async function getServerSideProps({ preview }) {
   const graphqlRequest = {
     query: `
-    {
-    allPosts {
-        slug
-        title
-        paragraph
-        date
-        excerpt
+      {
+        site: _site {
+          favicon: faviconMetaTags {
+            ...metaTagsFragment
+          }
+        }
+        blog {
+          seo: _seoMetaTags {
+            ...metaTagsFragment
+          }
+        }
+        allPosts(orderBy: date_DESC, first: 20) {
+          title
+          slug
+          excerpt
+          date
+          coverImage {
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+              ...responsiveImageFragment
+            }
+          }
+          author {
+            name
+            picture {
+              url(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100, sat: -100})
+            }
+          }
+        }
       }
-    }
+
+      ${metaTagsFragment}
+      ${responsiveImageFragment}
     `,
     preview,
   };
@@ -48,38 +72,23 @@ export default function Index({ subscription }) {
   // const metaTags = blog.seo.concat(site.favicon);
   return (
     <>
-      <Layout>
+      <Layout className="">
         <Head>
-          <title>My blog</title>
+          <title>CANNON TECH BLOG</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main>
-          <h1 className="my-5">
-            {heroPost.title}
-            Welcome to my new blog about new technologies and programming //
-            languages. I hope you will enjoy reading and you find something for
-            yourself.
-          </h1>
-          {/* <Header /> */}
+
+        <main className="">
+          <HeroPage
+            title={heroPost.title}
+            excerpt={heroPost.excerpt}
+            coverImage={heroPost.coverImage}
+          />
           <div>
-            <p>{heroPost.excerpt}</p>
+            <p>Trending articles</p>
           </div>
         </main>
       </Layout>
     </>
   );
 }
-
-// function BlogItem({ slug, title, excerpt, date }) {
-//   return (
-//     <div className="border-gray-200 rounded-lg border-2 shadow-sm p-4 mb-8">
-//       <div className="font-bold text-2xl ">
-//         <Link href={`/blog/${slug}`}>
-//           <a className="text-gray-800">{title}</a>
-//         </Link>
-//       </div>
-//       <div className="text-sm inline font-light antialiased">{date}</div>
-//       <div className="">{excerpt}</div>
-//     </div>
-//   );
-// }
