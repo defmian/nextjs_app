@@ -25,7 +25,7 @@ export async function getServerSideProps({ preview }) {
           excerpt
           date
           coverImage {
-            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+            responsiveImage(imgixParams: {fm: jpg, fit: scale, maxW: 585, maxH: 600 }) {
               ...responsiveImageFragment
             }
           }

@@ -190,4 +190,27 @@
     border-bottom-width: 2px;
     border-bottom-color: white;
   }
+
+  .continuous-2 {
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0 calc(25% - 10px),
+        currentColor 0 calc(25% + 10px),
+        transparent 0 50%
+      )
+      bottom right / 200% 3px no-repeat;
+    transition: 0.5s;
+  }
+  .continuous-2:hover {
+    background-position: bottom left;
+  }
+
+  .basic-6 {
+    background: linear-gradient(currentColor 0 0) bottom / var(--d, 20%) 3px
+      no-repeat;
+    transition: 0.5s;
+  }
+  .basic-6:hover {
+    --d: 80%;
+  }
 }
