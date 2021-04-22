@@ -7,6 +7,8 @@ module.exports = {
         "accent-1": "#020202",
         "accent-2": "#F7F8FA",
         "accent-3": "#666666",
+        "accent-4": "#D3D3D3",
+        "accent-5": "#B3B3B3",
       },
     },
     fontFamily: {
@@ -16,7 +18,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      scale: ["active"],
+      backgroundColor: ["active"],
+    },
   },
   plugins: [],
 };

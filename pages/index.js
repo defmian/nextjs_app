@@ -3,6 +3,7 @@ import { renderMetaTags, useQuerySubscription } from "react-datocms";
 import { request } from "../lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
 import Layout from "../components/Layout";
+import Container from "../components/Container";
 import HeroPage from "../components/HeroPost";
 
 export async function getServerSideProps({ preview }) {
@@ -83,10 +84,15 @@ export default function Index({ subscription }) {
             title={heroPost.title}
             excerpt={heroPost.excerpt}
             coverImage={heroPost.coverImage}
+            slug={heroPost.slug}
           />
-          <div>
-            <p>Trending articles</p>
-          </div>
+          <Container>
+            <div className="py-24">
+              <h3 className="text-3xl font-semibold leading-8">
+                Trending articles
+              </h3>
+            </div>
+          </Container>
         </main>
       </Layout>
     </>

@@ -5,7 +5,7 @@ import {
   getAllPostsWithSlug,
 } from "../../lib/datocms";
 
-// pages/blog/[slug].js
+// pages/posts/[slug].js
 export default function BlogPost({ title, date, content }) {
   return (
     <div className="container">

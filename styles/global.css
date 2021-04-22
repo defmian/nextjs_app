@@ -213,4 +213,8 @@
   .basic-6:hover {
     --d: 80%;
   }
+
+  .underline-thickness {
+    text-decoration-thickness: 0.5px;
+  }
 }

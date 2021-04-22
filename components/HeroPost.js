@@ -3,38 +3,48 @@ import Container from "./Container";
 import CoverImage from "./CoverImage";
 import { Image } from "react-datocms";
 import tw from "tailwind-styled-components";
+import ArrowRight from "../assets/arrow_forward_black_24dp.svg";
+import Link from "next/link";
 
 export default function HeroPage({ title, coverImage, excerpt, slug }) {
   return (
     <section className="pt-16 xl:pt-24 bg-accent-1 text-white">
-      <div className="container xl:px-24 mx-auto flex flex-col md:flex-row items-center">
+      <div className="container px-8 xl:px-24 mx-auto flex flex-col md:flex-row items-center">
         {/* Left Col */}
-        <div className="pb-20 flex flex-col w-full pr-9 md:w-1/2 items-start text-center md:text-left">
-          <h1 className="text-5xl tracking-wider md:tracking-normal lg:text-6xl xl:text-7xl font-bold leading-snug lg:leading-snug xl:leading-normal">
-            {title}
+        <div className="md:pr-12 md:pb-8 flex flex-col w-full md:w-1/2 items-center md:items-end text-center md:text-left">
+          <h1 className="py-4 tracking-wider text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold ">
+            <Link as={`/posts/${slug}`} href="/posts/[slug]">
+              <a className="underline-thickness hover:underline">{title}</a>
+            </Link>
           </h1>
-          <p className="pt-8 w-full tracking-wide font-light text-gray-500 text-lg">
+          <p className="py-4 md:py-8 w-full tracking-wide font-light text-accent-5 text-sm md:text-base xl:text-lg leading-relaxed">
             {excerpt}
           </p>
+          <button className="relative invisible md:visible py-2 lg:py-3 pl-4 pr-10 border border-accent-5 hover:border-gray-200 bg-accent-1 uppercase text-xs lg:text-sm text-accent-5 active:scale-105 hover:text-accent-2 font-light  focus:outline-none transform transition duration-200 ease-in-out">
+            <Link as={`/posts/${slug}`} href="/posts/[slug]">
+              <a>
+                Continue reading
+                <div className="absolute right-2 top-1 lg:top-1/4">
+                  <ArrowRight fill="#B3B3B3" />
+                </div>
+              </a>
+            </Link>
+          </button>
         </div>
 
         {/* Right col  */}
-        <div className="w-full md:w-1/2 text-center items-center">
-          {/* <CoverImage
-                title={title}
-                responsiveImage={coverImage.responsiveImage}
-                slug={slug}
-              /> */}
-          <Image
-            data={{
-              ...coverImage.responsiveImage,
-              alt: `Cover Image for ${title}`,
-            }}
-            className="w-4/5 z-50 text-center item"
-          />
-          {/* <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            Subscribe
-          </button> */}
+        <div className="pt-4 w-1/2 lg:w-2/5">
+          <Link as={`/posts/${slug}`} href="/posts/[slug]">
+            <a>
+              <Image
+                data={{
+                  ...coverImage.responsiveImage,
+                  alt: `Cover Image for ${title}`,
+                }}
+                className="z-1"
+              />
+            </a>
+          </Link>
         </div>
       </div>
     </section>
