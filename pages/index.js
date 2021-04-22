@@ -5,6 +5,8 @@ import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
 import Layout from "../components/Layout";
 import Container from "../components/Container";
 import HeroPage from "../components/HeroPost";
+import PostPreview from "../components/PostPreview";
+import PostGrid from "../components/PostGrid";
 
 export async function getServerSideProps({ preview }) {
   const graphqlRequest = {
@@ -91,6 +93,7 @@ export default function Index({ subscription }) {
               <h3 className="text-3xl font-semibold leading-8">
                 Trending articles
               </h3>
+              <PostGrid />
             </div>
           </Container>
         </main>
