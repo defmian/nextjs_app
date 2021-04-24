@@ -63,12 +63,22 @@ export default function Footer({ darkMode }) {
                 <div className="relative">
                   <form>
                     <input
-                      className="w-full outline-none rounded-md py-2 pl-4 pr-8 border mr-0 text-accent-3 font-lighter text-xs bg-gray-200 focus:border-gray-300 focus:boxShadow active:bg-gray-100 "
+                      className="w-full outline-none rounded-md py-2 pl-4 pr-8 border mr-0 text-accent-3 font-lighter text-xs bg-gray-200 focus:border-gray-300"
                       placeholder="Email..."
                     />
                   </form>
-                  <div className="absolute right-4 top-2 h-4 w-4 ">
-                    <ArrowRight fill="#666666" />
+                  <div className="absolute right-2 top-2">
+                    <svg
+                      fill="#B3B3B3"
+                      stroke="#b3b3b3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5 ml-2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
                   </div>
                 </div>
               </div>

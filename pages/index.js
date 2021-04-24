@@ -90,10 +90,10 @@ export default function Index({ subscription }) {
           />
           <Container>
             <div className="py-24">
-              <h3 className="text-3xl font-semibold leading-8">
+              <h3 className="py-4 text-3xl font-semibold leading-8">
                 Trending articles
               </h3>
-              <PostGrid />
+              {morePosts.length > 0 && <PostGrid posts={morePosts} />}
             </div>
           </Container>
         </main>

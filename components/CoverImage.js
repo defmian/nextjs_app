@@ -8,7 +8,7 @@ export default function CoverImage({ title, responsiveImage, slug }) {
         ...responsiveImage,
         alt: `Cover Image for ${title}`,
       }}
-      className="w-48"
+      className="z-2"
     />
   );
 
