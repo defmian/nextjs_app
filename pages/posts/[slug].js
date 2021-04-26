@@ -2,6 +2,7 @@ import Head from "next/head";
 import { request } from "../../lib/datocms";
 import { responsiveImageFragment } from "../../lib/fragments";
 import { useQuerySubscription } from "react-datocms";
+import Layout from "../../components/Layout";
 import PostBody from "../../components/PostBody";
 import PostHeader from "../../components/PostHeader";
 import PostInfo from "../../components/PostInfo";
@@ -101,22 +102,22 @@ export default function BlogPost({ subscription }) {
 
   return (
     <>
-      <div>
+      <Layout>
         <Head>
           <title>{`${post.title} - Cannon Tech Blog`}</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <PostHeader title={post.title} headerImage={post.coverImage} />
-      </div>
-      <div className="p-8 container mx-auto">
-        <PostInfo author={post.author.name} date={post.date} />{" "}
-        <PostBody content={post.content} />
-        <WrittenBy
-          author={post.author.name}
-          aboutAuthor={post.author.aboutAuthor}
-          picture={post.author.picture}
-        />
-      </div>
+        <div className="p-8 container mx-auto">
+          <PostInfo author={post.author.name} date={post.date} />{" "}
+          <PostBody content={post.content} />
+          <WrittenBy
+            author={post.author.name}
+            aboutAuthor={post.author.aboutAuthor}
+            picture={post.author.picture}
+          />
+        </div>
+      </Layout>
     </>
   );
 }

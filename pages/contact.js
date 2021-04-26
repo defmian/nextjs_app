@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <div className="container">
       <Head>
-        <title>About</title>
+        <title>Contact - Cannon Tech Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
