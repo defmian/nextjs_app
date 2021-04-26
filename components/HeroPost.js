@@ -1,4 +1,4 @@
-import Header from "./Header";
+import HeaderHomePage from "./HeaderHomePage";
 import Container from "./Container";
 import CoverImage from "./CoverImage";
 import { Image } from "react-datocms";
@@ -12,11 +12,7 @@ export default function HeroPage({ title, coverImage, excerpt, slug }) {
       <div className="container px-8 xl:px-24 mx-auto flex flex-col md:flex-row items-center">
         {/* Left Col */}
         <div className="md:pr-12 md:pb-8 flex flex-col w-full md:w-1/2 items-center md:items-end text-center md:text-left">
-          <h1 className="py-4 tracking-wider text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold ">
-            <Link as={`/posts/${slug}`} href="/posts/[slug]">
-              <a className="underline-thickness hover:underline">{title}</a>
-            </Link>
-          </h1>
+          <HeaderHomePage title={title} />
           <p className="py-4 md:py-8 w-full tracking-wide font-light text-accent-5 text-sm md:text-base xl:text-lg leading-relaxed">
             {excerpt}
           </p>

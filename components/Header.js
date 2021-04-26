@@ -1,11 +1,9 @@
 import Link from "next/link";
 
-export default function Header() {
+export default function Header({ children }) {
   return (
-    <h2 className="text-3xl font-bold tracking-tight leading-tight text-left mb-12 mt-4">
-      <Link href="/">
-        <a className="hover:underline">Blog</a>
-      </Link>
+    <h2 className="tracking-normal text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal text-white">
+      {children}
     </h2>
   );
 }
