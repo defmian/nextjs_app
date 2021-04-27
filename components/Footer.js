@@ -7,15 +7,15 @@ export default function Footer({ darkMode }) {
     <footer className="px-8 bg-accent-2">
       <Container>
         <div className="py-12 flex flex-col items-center lg:items-start lg:flex-row md:justify-between">
-          <div className="pb-12 sm:pb-4 lg:w-1/3">
+          <div className="pb-12 sm:pb-8 lg:w-1/3">
             <Logo />
             <p className="mt-4 select-none font-lighter text-accent-3 text-sm">
               My blog about new technologies
             </p>
           </div>
-          <div className="w-full xl:w-3/4 flex flex-col flex-grow md:flex-row sm:justify-center">
-            <div className="w-1/2 pb-4">
-              <div className="pb-1 text-lg font-semibold select-none">Blog</div>
+          <div className="w-full xl:w-3/4 flex flex-col flex-grow md:flex-row sm:justify-center items-center md:items-start">
+            <div className="w-1/2 pb-4 justify-self-center">
+              <span className="pb-1 text-lg font-semibold select-none">Blog</span>
               <a
                 href="#"
                 className="my-3 block text-accent-3 font-lighter text-sm"
@@ -36,9 +36,9 @@ export default function Footer({ darkMode }) {
               </a>
             </div>
             <div className="w-1/2 pb-4">
-              <div className="pb-1 text-lg font-semibold select-none">
+              <span className="pb-1 text-lg font-semibold select-none">
                 Contact me
-              </div>
+              </span>
               <a
                 href="#"
                 className="my-3 block text-accent-3 font-lighter text-sm"
@@ -53,9 +53,9 @@ export default function Footer({ darkMode }) {
               </p>
             </div>
             <div className="w-1/2">
-              <div className="pb-1 text-lg font-semibold select-none">
+              <span className="pb-1 text-lg font-semibold select-none">
                 Stay up to date
-              </div>
+              </span>
               <p className="my-3 block text-accent-3 font-lighter text-sm">
                 Subscribe to newsletter
               </p>

@@ -196,6 +196,11 @@
     background-color: #fff;
   }
 
+  textarea {
+    resize: vertical; 
+    max-height: 200px;  
+  }
+
   .active {
     border-bottom-width: 2px;
     border-bottom-color: white;
