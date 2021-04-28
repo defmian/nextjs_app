@@ -85,6 +85,8 @@ export async function getStaticProps({ params, preview = false }) {
     },
   };
 
+  // console.log(graphqlRequest)
+
   return {
     props: {
       subscription: {
