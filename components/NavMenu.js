@@ -10,7 +10,7 @@ export default function NavMenu() {
           </ActiveLink>
         </li>
         <li className="py-6 inline-block hover:text-gray-300 transition delay-250 duration-300 ease-in-out">
-          <ActiveLink activeClassName="active" href="/category">
+          <ActiveLink activeClassName="active" href="/category/30295307">
             <a className="p-6">CATEGORY</a>
           </ActiveLink>
         </li>

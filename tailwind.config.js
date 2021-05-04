@@ -9,6 +9,12 @@ module.exports = {
         "screen/4": "calc(100vh / 4)",
         "screen/5": "calc(100vh / 5)",
       }),
+      spacing: {
+        72: "18rem",
+        84: "21rem",
+        96: "24rem",
+        104: "29rem",
+      },
       colors: {
         "accent-1": "#020202",
         "accent-2": "#F7F8FA",

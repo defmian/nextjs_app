@@ -6,6 +6,7 @@ import Layout from "../../components/Layout";
 import Container from "../../components/Container";
 import CategoriesSelect from "../../components/CategoriesSelect";
 import Header from "../../components/Header";
+import PostByCategories from "../../components/PostByCategories";
 
 // This function gets called at build time
 export async function getStaticPaths() {
@@ -24,16 +25,19 @@ export async function getStaticProps({ params, preview = false }) {
         allPosts(filter: {category: {eq: $id}}) {
           title
           slug
+          excerpt
+          date
           ogImage: coverImage{
             url(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 })
           }
           coverImage {
-            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w:464 h:380}) {
               ...responsiveImageFragment
             }
           }
           category {
               name
+              id
             }
         }
 
@@ -48,6 +52,10 @@ export async function getStaticProps({ params, preview = false }) {
               }
             }
          }
+
+         categoryHeader: allCategories(filter: {id: {eq: $id}}) {
+             name
+          }
       }
 
       ${responsiveImageFragment}
@@ -58,10 +66,8 @@ export async function getStaticProps({ params, preview = false }) {
     },
   };
 
-  console.log(graphqlRequest)
-
   return {
-    props: {
+  props: {
       subscription: {
         enabled: true,
         initialData: await request(graphqlRequest),
@@ -73,13 +79,10 @@ export async function getStaticProps({ params, preview = false }) {
 
 export default function CategoryPage({subscription}) {
 
-    const { data: {allPosts, otherCategories}} = useQuerySubscription(subscription);
-
-    console.log(otherCategories);
-    console.log(allPosts)
-
+    const { data: {allPosts, otherCategories, categoryHeader}} = useQuerySubscription(subscription);
+   
     return (
-      <>
+    <>
         <Layout>
           <Head>
             <title>{`Categories - Cannon Tech Blog`}</title>
@@ -92,22 +95,13 @@ export default function CategoryPage({subscription}) {
             </Container>
           </div>
           <Container>
-            <div className="p-20">
-              <h3 className="inline-block py-4 text-3xl font-semibold leading-8 text-gray-600">{`Article > `}</h3>
-              <h3 className="inline-block py-4 px-2 text-3xl font-semibold leading-8">
-                {allPosts[0].category.name}
+            <div className="pt-12 pl-8">
+              <h3 className="inline-block py-4 text-3xl font-normal leading-8 text-accent-3">{`Article > `}</h3>
+              <h3 className="inline-block py-4 px-2 text-3xl font-bold text-gray-900 leading-8">
+                {categoryHeader[0].name}
               </h3>
-              <div className="">
-              {/* //PostPreviewCategory  */}
-              {allPosts.map((post) => (
-                <div className="p-2">
-                  <h1>{post.title}</h1>
-                  <p>{post.excerpt}</p>
-                </div>
-              ))}
-
-              </div>
             </div>
+              <PostByCategories allPosts={allPosts} />
           </Container>
         </Layout>
       </>

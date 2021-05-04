@@ -2,14 +2,12 @@ import Link from 'next/link';
 import { Image } from 'react-datocms';
 
 export default function CategoryPreview({name, excerpt, responsiveImage, id}) {
-    
-    console.log(id);
-
+   
     return (
       <>
         <Link as={`/category/${id}`} href="/category/[id]">
           <a aria-label={name}>
-            <div className="p-2 ">
+            <div className="py-2 pr-8">
               <div className="h-full overflow-hidden">
                 <Image
                   data={{
