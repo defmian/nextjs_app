@@ -4,7 +4,7 @@ export default function PostGrid({ posts }) {
   console.log(posts);
 
   return (
-    <div className="grid grid-flow-col grid-cols-3 auto-rows-auto">
+    <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-max">
       {posts.map((post) => (
         <PostPreview
           key={post.slug}

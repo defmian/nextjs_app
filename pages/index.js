@@ -72,16 +72,15 @@ export default function Index({ subscription }) {
 
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
-  // const metaTags = blog.seo.concat(site.favicon);
+
   return (
     <>
-      <Layout className="">
+      <Layout>
         <Head>
-          <title>CANNON TECH BLOG</title>
+          <title>Cannon Tech Blog</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
-        <main className="">
+        <main>
           <HeroPage
             title={heroPost.title}
             excerpt={heroPost.excerpt}

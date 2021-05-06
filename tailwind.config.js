@@ -14,6 +14,7 @@ module.exports = {
         84: "21rem",
         96: "24rem",
         104: "29rem",
+        200: "34rem"
       },
       colors: {
         "accent-1": "#020202",

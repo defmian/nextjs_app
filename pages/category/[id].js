@@ -1,4 +1,4 @@
-import Head from "next/head"
+import Head from "next/head";
 import { request } from "../../lib/datocms";
 import { responsiveImageFragment } from "../../lib/fragments";
 import { useQuerySubscription } from "react-datocms";
@@ -67,7 +67,7 @@ export async function getStaticProps({ params, preview = false }) {
   };
 
   return {
-  props: {
+    props: {
       subscription: {
         enabled: true,
         initialData: await request(graphqlRequest),
@@ -76,34 +76,34 @@ export async function getStaticProps({ params, preview = false }) {
   };
 }
 
+export default function CategoryPage({ subscription }) {
+  const {
+    data: { allPosts, otherCategories, categoryHeader },
+  } = useQuerySubscription(subscription);
 
-export default function CategoryPage({subscription}) {
-
-    const { data: {allPosts, otherCategories, categoryHeader}} = useQuerySubscription(subscription);
-   
-    return (
+  return (
     <>
-        <Layout>
-          <Head>
-            <title>{`Categories - Cannon Tech Blog`}</title>
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <div className="bg-accent-1 pt-20">
-            <Container>
-              <Header>Categories</Header>
-              <CategoriesSelect categories={otherCategories} />
-            </Container>
-          </div>
+      <Layout>
+        <Head>
+          <title>{`Categories - Cannon Tech Blog`}</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <div className="bg-accent-1 pt-20">
           <Container>
-            <div className="pt-12 pl-8">
-              <h3 className="inline-block py-4 text-3xl font-normal leading-8 text-accent-3">{`Article > `}</h3>
-              <h3 className="inline-block py-4 px-2 text-3xl font-bold text-gray-900 leading-8">
-                {categoryHeader[0].name}
-              </h3>
-            </div>
-              <PostByCategories allPosts={allPosts} />
+            <Header>Categories</Header>
+            <CategoriesSelect categories={otherCategories} />
           </Container>
-        </Layout>
-      </>
-    );
+        </div>
+        <Container>
+          <div className="py-24">
+            <h3 className="inline-block py-4 text-3xl font-normal leading-8 text-accent-3">{`Article > `}</h3>
+            <h3 className="inline-block py-4 px-2 text-3xl font-bold text-gray-900 leading-8">
+              {categoryHeader[0].name}
+            </h3>
+          <PostByCategories allPosts={allPosts} />
+          </div>
+        </Container>
+      </Layout>
+    </>
+  );
 }
