@@ -70,9 +70,10 @@ export default function Index({ subscription }) {
     status: connetionStatus,
   } = useQuerySubscription(subscription);
 
-  const heroPost = allPosts[0];
+  const heroPost = allPosts[2];
   const morePosts = allPosts.slice(1);
 
+  console.log(morePosts)
   return (
     <>
       <Layout>
@@ -100,3 +101,4 @@ export default function Index({ subscription }) {
     </>
   );
 }
+
