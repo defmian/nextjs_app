@@ -4,7 +4,7 @@ import ArrowRight from "../assets/arrow_forward_black_24dp.svg";
 
 export default function Footer({ darkMode }) {
   return (
-    <footer className="px-8 bg-accent-2">
+    <footer className="relative px-8 bg-accent-2">
       <Container>
         <div className="py-12 flex flex-col items-center lg:items-start lg:flex-row md:justify-between">
           <div className="pb-12 sm:pb-8 lg:w-1/3">

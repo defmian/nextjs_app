@@ -32,36 +32,31 @@ export async function getStaticProps({}) {
 
 export default function Contact({ data }) {
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>Contact - Cannon Tech Blog</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <main className="h-screen pt-4 lg:px-2 bg-accent-1 text-gray-50">
-          <Container>
-            <Header>Contact form</Header>
-            <div className="flex flex-col lg:flex-row items-center justify-around">
-              {/* Left col */}
-              <div className="w-3/4 pb-12 lg:pb-40 items-center md:items-end text-center md:text-left">
-                <p className="pt-12 pb-8 font-extralight text-justify text-lg leading-9 ">
-                  Let me know about your idea for interesting article
-                </p>
-                {/* start  */}
-                <ContactForm />
-                {/* end  */}
-              </div>
-              {/* Right col  */}
-              <div className="lg:p-16 w-1/2 lg:w-full">
-                <Image
-                  data={data.upload.responsiveImage}
-                  alt="picture contact"
-                />
-              </div>
+    <div>
+      <Head>
+        <title>Contact - Cannon Tech Blog</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main className="pt-16 lg:h-screen bg-accent-1 text-gray-50 ">
+        <Container>
+          <Header>Contact form</Header>
+          <div className="flex flex-col lg:flex-row items-center justify-around">
+            {/* Left col */}
+            <div className="w-full lg:w-1/2 lg:pr-12  pb-12 lg:pb-40 md:items-end text-left order-2 lg:order-1">
+              <p className="pt-12 pb-8 font-extralight text-left text-lg leading-9">
+                Let me know about your idea for interesting article
+              </p>
+              {/* start  */}
+              <ContactForm />
+              {/* end  */}
             </div>
-          </Container>
-        </main>
-      </Layout>
-    </>
+            {/* Right col  */}
+            <div className="w-1/2 pt-10 order-1 lg:order-2">
+              <Image data={data.upload.responsiveImage} alt="picture contact" />
+            </div>
+          </div>
+        </Container>
+      </main>
+    </div>
   );
 }

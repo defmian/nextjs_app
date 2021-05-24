@@ -61,7 +61,7 @@ const ContactForm = () => {
       });
   };
   return (
-    <main className="py-2 max-w-md text-left">
+    <main className="py-2 text-left">
       <form onSubmit={handleOnSubmit}>
         <div className="grid grid-cols-1">
           <label htmlFor="fullname" className="text-lg text-gray-200">

@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Header from "../components/Header";
-import Layout from "../components/Layout";
 import Container from "../components/Container";
 import { responsiveImageFragment } from "../lib/fragments";
 import { request } from "../lib/datocms";
 import { Image } from "react-datocms";
 import ArrowRight from "../assets/arrow_forward_black_24dp.svg";
+
 
 export async function getStaticProps({}) {
   const graphqlRequest = {
@@ -31,29 +31,28 @@ export async function getStaticProps({}) {
 
 export default function About({ data }) {
   return (
-    <>
-      <Layout>
+      <div>
         <Head>
           <title>About me - Cannon Tech Blog</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className="h-screen pt-28 lg:px-2 bg-accent-1 text-gray-50">
+        <main className="flex justify-center md:h-screen pt-16 lg:px-2 bg-accent-1 text-gray-50">
           <Container>
             <Header>About me</Header>
-            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-around bg-red-400">
+            <div className="flex flex-col md:flex-row justify-around items-center">
               {/* Left col */}
-              <div className="w-3/4 pr-20 items-end text-center md:text-left">
-                <p className="pt-16 font-extralight text-justify text-lg leading-9">
+              <div className="w-full pt-10 lg:pr-20 items-end text-center md:text-left order-2 md:order-1">
+                <p className="font-normal text-left text-base lg:text-lg leading-7">
                   Hi! My name is Damian and I’m Junior React Front-End
                   Developer. I love develop, design web and mobile application
                   for startups, small and medium businesses. I’d love to work
                   for you.
                 </p>
-                <p className="py-4 font-extralight text-justify text-lg leading-9 ">
+                <p className="py-4 font-normal text-justify text-base lg:text-lg leading-7">
                   If you want to watch my work, check out my github profil.
                 </p>
-                <div className="pt-12 text-center lg:text-right">
-                  <button className="inline-block py-2 lg:py-3 pl-4 pr-10 border border-accent-5 hover:border-gray-200 bg-accent-1 uppercase text-xs lg:text-sm text-accent-5 active:scale-105 hover:text-gray-50 font-light  focus:outline-none transform transition duration-200 ease-in-out">
+                <div className="text-center lg:text-right pt-5 pb-10">
+                  <button className="inline-block py-3 pl-4 pr-10 border border-accent-5 hover:border-gray-200 bg-accent-1 uppercase text-sm text-accent-5 active:scale-105 hover:text-gray-50 font-light focus:outline-none transform transition duration-200 ease-in-out">
                     <a href="http://github.com/damniam">
                       Check out
                       <div className="absolute right-2 top-1 lg:top-1/4">
@@ -64,7 +63,7 @@ export default function About({ data }) {
                 </div>
               </div>
               {/* Right col  */}
-              <div className="w-3/4">
+              <div className="w-3/4 pt-10 order-1 md:order-2">
                 <Image
                   data={data.upload.responsiveImage}
                   alt="picture author"
@@ -73,7 +72,6 @@ export default function About({ data }) {
             </div>
           </Container>
         </main>
-      </Layout>
-    </>
+      </div>
   );
 }
