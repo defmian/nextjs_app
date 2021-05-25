@@ -4,18 +4,20 @@ import ArrowRight from "../assets/arrow_forward_black_24dp.svg";
 
 export default function Footer({ darkMode }) {
   return (
-    <footer className="relative px-8 bg-accent-2">
+    <footer className="relative px-8 bg-accent-2 ">
       <Container>
         <div className="py-12 flex flex-col items-center lg:items-start lg:flex-row md:justify-between">
-          <div className="pb-12 sm:pb-8 lg:w-1/3">
+          <div className="pb-12 sm:pb-8 lg:pr-24 lg:w-1/3">
             <Logo />
             <p className="mt-4 select-none font-lighter text-accent-3 text-sm">
               My blog about new technologies
             </p>
           </div>
-          <div className="w-full xl:w-3/4 flex flex-col flex-grow md:flex-row sm:justify-center items-center md:items-start">
+          <div className="w-full xl:w-3/4 flex flex-wrap md:flex-nowrap flex-row md:items-start">
             <div className="w-1/2 pb-4 justify-self-center">
-              <span className="pb-1 text-lg font-semibold select-none">Blog</span>
+              <span className="pb-1 text-lg font-semibold select-none">
+                Blog
+              </span>
               <a
                 href="#"
                 className="my-3 block text-accent-3 font-lighter text-sm"
@@ -52,7 +54,7 @@ export default function Footer({ darkMode }) {
                 1010 Sunset Blv. Palo Alto, California
               </p>
             </div>
-            <div className="w-1/2">
+            <div className="w-1/2 md:w-1/2">
               <span className="pb-1 text-lg font-semibold select-none">
                 Stay up to date
               </span>
@@ -60,7 +62,8 @@ export default function Footer({ darkMode }) {
                 Subscribe to newsletter
               </p>
               <div>
-                <div className="relative">
+            
+                <div className="relative bg-green-100">
                   <form>
                     <input
                       className="w-full outline-none rounded-md py-2 pl-4 pr-8 border mr-0 text-accent-3 font-lighter text-xs bg-gray-200 focus:border-gray-300"
