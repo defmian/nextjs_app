@@ -1,8 +1,5 @@
 import HeaderHomePage from "./HeaderHomePage";
-import Container from "./Container";
-import CoverImage from "./CoverImage";
 import { Image } from "react-datocms";
-import tw from "tailwind-styled-components";
 import ArrowRight from "../assets/arrow_forward_black_24dp.svg";
 import Link from "next/link";
 
@@ -12,7 +9,7 @@ export default function HeroPage({ title, coverImage, excerpt, slug }) {
       <div className="container mx-auto px-24 xl:px-44 flex flex-col md:flex-row items-center">
         {/* Left Col */}
         <div className="md:pr-12 md:pb-8 flex flex-col w-full md:w-1/2 items-center md:items-end text-center md:text-left">
-          <HeaderHomePage title={title} />
+          <HeaderHomePage title={title} slug={slug} />
           <p className="py-4 md:py-8 w-full tracking-wide font-light text-accent-5 text-sm md:text-base xl:text-lg leading-relaxed">
             {excerpt}
           </p>

@@ -5,7 +5,6 @@ import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
 import Layout from "../components/Layout";
 import Container from "../components/Container";
 import HeroPage from "../components/HeroPost";
-import PostPreview from "../components/PostPreview";
 import PostGrid from "../components/PostGrid";
 
 export async function getServerSideProps({ preview }) {
@@ -28,7 +27,7 @@ export async function getServerSideProps({ preview }) {
           excerpt
           date
           coverImage {
-            responsiveImage(imgixParams: {fm: jpg, fit: scale, maxW: 585, maxH: 600 }) {
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1200, h:800 }) {
               ...responsiveImageFragment
             }
           }
@@ -70,7 +69,7 @@ export default function Index({ subscription }) {
     status: connetionStatus,
   } = useQuerySubscription(subscription);
 
-  const heroPost = allPosts[2];
+  const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
 
   console.log(morePosts)
