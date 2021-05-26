@@ -21,7 +21,7 @@ export async function getServerSideProps({ preview }) {
             ...metaTagsFragment
           }
         }
-        allPosts(orderBy: date_DESC, first: 20) {
+        morePosts: allPosts(orderBy: date_DESC, skip:"1", first: 20) {
           title
           slug
           excerpt
@@ -38,8 +38,18 @@ export async function getServerSideProps({ preview }) {
             }
           }
         }
-      }
-
+         heroPost: allPosts(first: "1", orderBy: date_DESC) {          
+               title
+                slug
+                excerpt
+                date
+                coverImage {
+                        responsiveImage(imgixParams: {fm: jpg, fit: crop}) {
+                          ...responsiveImageFragment
+                        }
+                      }
+  }
+    }
       ${metaTagsFragment}
       ${responsiveImageFragment}
     `,
@@ -64,15 +74,12 @@ export async function getServerSideProps({ preview }) {
 
 export default function Index({ subscription }) {
   const {
-    data: { allPosts, site, blog },
+    data: { morePosts, heroPost, site, blog },
     error: connectionError,
     status: connetionStatus,
   } = useQuerySubscription(subscription);
 
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
-
-  console.log(morePosts)
+  const [heroPreview] = heroPost;
   return (
     <>
       <Layout>
@@ -82,12 +89,12 @@ export default function Index({ subscription }) {
         </Head>
         <main>
           <HeroPage
-            title={heroPost.title}
-            excerpt={heroPost.excerpt}
-            coverImage={heroPost.coverImage}
-            slug={heroPost.slug}
-          />
-          <Container>
+            title={heroPreview.title}
+            excerpt={heroPreview.excerpt}
+            coverImage={heroPreview.coverImage}
+            slug={heroPreview.slug}
+            />
+            <Container>
             <div className="py-24">
               <h3 className="py-4 text-3xl font-semibold leading-8">
                 Trending articles
