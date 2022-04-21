@@ -31,7 +31,7 @@ export async function getStaticProps({ params, preview = false }) {
             url(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 })
           }
           coverImage {
-            responsiveImage(imgixParams: {fm: jpg, fit: crop, w:464 h:380}) {
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w:700, h:600}) {
               ...responsiveImageFragment
             }
           }

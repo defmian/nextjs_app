@@ -7,7 +7,7 @@ export default function HeroPage({ title, coverImage, excerpt, slug }) {
   return (
     <section className="pt-28 xl:pt-44 bg-accent-1">
       <div className="container mx-auto px-8 items-end">
-        <div className="flex flex-col lg:flex-row items-center md:items-end text-left">
+        <div className="flex flex-col lg:flex-row items-center text-left">
           <div className="lg:pb-8 xl:pb-16">
             <HeaderHomePage title={title} slug={slug} />
             <p className="pb-4 pr-12 tracking-wide font-light text-accent-5 text-sm md:text-base xl:text-lg leading-relaxed">
@@ -34,7 +34,7 @@ export default function HeroPage({ title, coverImage, excerpt, slug }) {
                     ...coverImage.responsiveImage,
                     alt: `Cover Image for ${title}`,
                   }}
-                  className="w-full"
+                    className="w-3/4 h-3/4 object-cover object-center"
                 />
               </a>
             </Link>

@@ -27,6 +27,8 @@ export default function Nav({ colorLogo }) {
               </svg>
             </button>
           </div>
+
+          
           <div
             className={"lg:flex flex-grow " + (isOpen ? " flex" : " hidden")}
             id="navbar-danger"
