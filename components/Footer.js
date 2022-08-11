@@ -89,7 +89,7 @@ export default function Footer({ darkMode }) {
           </div>
         </div>
         <div className="py-8 text-accent-3 font-lighter text-xs text-center">
-          © Copyright CANNON TECH Damian Dzialo
+          © Copyright CANNON TECH thedevmian
         </div>
       </Container>
     </footer>
