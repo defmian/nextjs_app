@@ -53,7 +53,7 @@ export default function About({ data }) {
                 </p>
                 <div className="text-center lg:text-right pt-5 pb-10">
                   <button className="inline-block py-3 pl-4 pr-10 border border-accent-5 hover:border-gray-200 bg-accent-1 uppercase text-sm text-accent-5 active:scale-105 hover:text-gray-50 font-light focus:outline-none transform transition duration-200 ease-in-out">
-                    <a href="http://github.com/damniam">
+                    <a href="http://github.com/thedevmian">
                       Check out
                       <div className="absolute right-2 top-1 lg:top-1/4">
                         <ArrowRight fill="#B3B3B3" />
